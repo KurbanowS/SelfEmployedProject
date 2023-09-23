@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <nav>
-        <a href="{{ url_for('adduser') }}">Add user</a>
+        <a href="{{ url_for('dev.addeveloper') }}">Add Developer</a>
+        <a href="{{ url_for('des.addesigner') }}">Add UX/UI Designer</a>
     </nav>
 {% endblock content %}

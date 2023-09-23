@@ -1,10 +1,12 @@
-from main import app, db
-from main.models import Me
+from main import create_app, db
+from main.developers.models import Me, Developers
+from main.designers.models import Designers
 
+app = create_app()
 
 @app.shell_context_processor
 def make_shell_context():
-    return{'db' : db, 'Me' : Me}
+    return{'db' : db, 'Me' : Me, 'Developers' : Developers, 'Designers' : Designers}
 
 
 

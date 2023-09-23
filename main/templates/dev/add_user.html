@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Add developer</h1>
+    {% if developer %}
+        <h1>Add developer</h1>
+    {% else %}
+        <h1>Add designer</h1>
+    {% endif %}    
     <form action="" method="post" novalidate>
         <p><input type="text" name="name" placeholder="Name"></p>
         <p><input type="email" name="email" placeholder="Email"></p>

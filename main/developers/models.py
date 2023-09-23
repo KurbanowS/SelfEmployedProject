@@ -2,7 +2,7 @@ from main import db
 
 
 class Me(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True )
     name = db.Column(db.String(6))
     email = db.Column(db.String(20))
     desc = db.Column(db.Text)
@@ -10,6 +10,16 @@ class Me(db.Model):
 
     def __repr__(self):
         return '<Me {}>'.format(self.name)
+    
+
+class Developers(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    name = db.Column(db.String(20), nullable = False)
+    email = db.Column(db.String(40), nullable = False)
+    desc = db.Column(db.Text, nullable = False,)
+
+    def __repr__(self):
+        return '<Developers {}>'.format(self.name)
     
 
     def to_dict(self):
@@ -25,4 +35,3 @@ class Me(db.Model):
         for field in ['name', 'email', 'desc']:
             if field in data:
                 setattr(self, field, data[field])
-                
