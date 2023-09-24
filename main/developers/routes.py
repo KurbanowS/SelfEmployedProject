@@ -11,8 +11,8 @@ def index():
     return render_template('dev/index.html', title='All developers', dev=dev)
 
 
-@bp.route('/addeveloper', methods=['POST'])
-def addeveloper():
+@bp.route('/adddeveloper', methods=['POST', 'GET'])
+def adddeveloper():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -21,7 +21,7 @@ def addeveloper():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('dev.index'))
-    return render_template('dev/add_user.html', title='Add Developer')
+    return render_template('dev/add_dev.html', title='Add Developer')
 
 
 @bp.route('/api/developer/<int:id>', methods=['GET'])

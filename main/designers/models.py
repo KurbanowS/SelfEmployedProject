@@ -1,9 +1,9 @@
 from main import db
 
 class Designers(db.Model):
-    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    name = db.Column(db.String(20), nullable=False, primary_key=True)
-    email = db.Column(db.String(40), nullable=False, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), nullable=False)
+    email = db.Column(db.String(40), nullable=False)
     desc = db.Column(db.Text, nullable=False)
 
     def __repr__(self):

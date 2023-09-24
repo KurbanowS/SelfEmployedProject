@@ -10,8 +10,8 @@ def designer_page():
     return render_template('dev/designer_page.html', title='All UI/UX Designers', des=des)
 
 
-@bp.route('/addesigner', methods=['POST'])
-def addesigner():
+@bp.route('/adddesigner', methods=['POST', 'GET'])
+def adddesigner():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -20,7 +20,7 @@ def addesigner():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('des.designer_page'))
-    return render_template('dev/addesigner.html', title='Add Designer')
+    return render_template('dev/add_des.html', title='Add Designer')
 
 
 @bp.route('/api/designer/<int:id>', methods=['GET'])

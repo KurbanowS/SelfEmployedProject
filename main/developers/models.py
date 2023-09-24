@@ -13,7 +13,7 @@ class Me(db.Model):
     
 
 class Developers(db.Model):
-    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(20), nullable = False)
     email = db.Column(db.String(40), nullable = False)
     desc = db.Column(db.Text, nullable = False,)
