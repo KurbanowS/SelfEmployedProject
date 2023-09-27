@@ -1,4 +1,4 @@
-from flask import url_for, redirect, render_template, request, jsonify
+from flask import url_for, redirect, render_template, request, jsonify, current_app
 from main import db
 from main.designers import bp
 from .models import Designers
@@ -6,8 +6,17 @@ from .models import Designers
 
 @bp.route('/designerpage')
 def designer_page():
-    des = Designers.query.all()
-    return render_template('dev/designer_page.html', title='All UI/UX Designers', des=des)
+    page = request.args.get('page', 1, type=int)
+    des = Designers.query.filter(Designers.id > 0).order_by(Designers.id.desc()).paginate(page=page, per_page=current_app.config['POST_PER_PAGE'])
+    next_url = url_for('des.designer_page', page=des.next_num) if des.has_next else None
+    prev_url = url_for('des.designer_page', page=des.prev_num) if des.has_prev else None
+    return render_template('dev/index.html', title='All UI/UX Designers', des=des, next_url=next_url, prev_url=prev_url)
+
+
+@bp.route('/designer/<int:id>')
+def single_pag(id):
+    designer = Designers.query.get_or_404(id)
+    return render_template('dev/single_page.html', designer=designer)
 
 
 @bp.route('/adddesigner', methods=['POST', 'GET'])

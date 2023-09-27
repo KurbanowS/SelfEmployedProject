@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include "navbar.html" %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+            
+                {% if developer %}
+                <h2>Name:</h2>
+                <h3>{{ developer.name }}</h3>
+                <h4>Email:</h4>
+                <h5>{{ developer.email }}</h5>
+                <hr>
+                <p>{{ developer.desc }}</p>
+                
+                {% else %}
+                <h2>Name:</h2>
+                <h3>{{ designer.name }}</h3>
+                <h4>Email:</h4>
+                <h5>{{ designer.email }}</h5>
+                <hr>
+                <p>{{ designer.desc }}</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -35,3 +35,10 @@ class Developers(db.Model):
         for field in ['name', 'email', 'desc']:
             if field in data:
                 setattr(self, field, data[field])
+
+
+class Banners(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(30))
+    def __repr__(self):
+        return '<Banners {}>'.format(self.name)
