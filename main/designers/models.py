@@ -1,6 +1,7 @@
 from main import db
 
 class Designers(db.Model):
+    __searchable__ = ['name', 'email']
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(40), nullable=False)

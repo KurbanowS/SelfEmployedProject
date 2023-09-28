@@ -13,10 +13,11 @@ class Me(db.Model):
     
 
 class Developers(db.Model):
+    __searchable__ = ['name', 'email']
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(20), nullable = False)
     email = db.Column(db.String(40), nullable = False)
-    desc = db.Column(db.Text, nullable = False,)
+    desc = db.Column(db.Text, nullable = False)
 
     def __repr__(self):
         return '<Developers {}>'.format(self.name)
@@ -42,3 +43,5 @@ class Banners(db.Model):
     name = db.Column(db.String(30))
     def __repr__(self):
         return '<Banners {}>'.format(self.name)
+    
+

@@ -56,6 +56,9 @@ def postdeveloper():
     return response
     
     
-    
-
+# @bp.route('/search')
+# def s_dev():
+#     keyword = request.args.get('q')
+#     results = Developers.query.msearch(keyword, fields=['name','email'], limit=30)
+#     return render_template('dev/search.html', results=results)
 
