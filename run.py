@@ -1,6 +1,8 @@
 from main import create_app, db
-from main.developers.models import Me, Developers, Banners
+from main.developers.models import Developers, Banners
 from main.designers.models import Designers
+from main.admin.models import Me
+
 
 app = create_app()
 

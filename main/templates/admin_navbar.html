@@ -1,21 +1,22 @@
-
-  <nav class="navbar navbar-expand-md navbar-dark top-bar fixed" style="background-color:#66d4ca">
+{% extends "base.html" %}
+{% block content %}
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#66d4ca">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Dev Rent</a>
+      <a class="navbar-brand" href="#">Admin</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        {% if dev %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('dev.index') }}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.dev_page') }}">Designer page</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('dev.index') }}">Developer Page</a>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.des_page') }}">Developer page</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('des.designer_page') }}">Designer Page</a>
-          </li>
+        {% endif %}
         </ul>
         {# <form class="d-flex" action="{{ url_for('dev.s_dev') }}" method="GET">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
@@ -24,4 +25,4 @@
       </div>
     </div>
   </nav>
-
+{% endblock content %}
