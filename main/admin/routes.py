@@ -46,7 +46,7 @@ def admin_login():
             flash('Ivalid username or password')
             return redirect(url_for('AD.admin_login'))
         login_user(user)
-        next_page = request.args.get('next').split()
+        next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('AD.dev_page')
         return redirect(next_page)

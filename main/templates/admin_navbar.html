@@ -10,13 +10,16 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
         {% if dev %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.dev_page') }}">Designer page</a>
+            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.des_page') }}">Designer page</a>
           </li>
         {% else %}
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.des_page') }}">Developer page</a>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.dev_page') }}">Developer page</a>
           </li>
         {% endif %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('AD.admin_logout') }}">Logout</a>
+          </li>
         </ul>
         {# <form class="d-flex" action="{{ url_for('dev.s_dev') }}" method="GET">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
